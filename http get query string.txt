@@ -1,0 +1,15 @@
+GET /page.html?action=setled&colour=blue HTTP/1.1\r\nUser-Agent: PostmanRuntime/7.30.0\r\nAccep
+t: */*\r\nCache-Control: no-cache\r\nPostman-Token: ecce0bea-5bf6-4cbc-9218-7c2c
+d25b9da3\r\nHost: 192.168.1.246\r\nAccept-Encoding: gzip, deflate, br\r\nConnect
+ion: keep-alive\r\n\r\n
+
+
+GET /page.html?action=setled&colour=blue HTTP/1.1
+User-Agent: PostmanRuntime/7.30.0
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: ecce0bea-5bf6-4cbc-9218-7c2cd25b9da3
+Host: 192.168.1.246
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+

@@ -1,0 +1,24 @@
+POST /api HTTP/1.1\r\nContent-Type: application/javascript\r\nUser-Agent: Post
+manRuntime/7.30.0\r\nAccept: */*\r\nCache-Control: no-cache\r\nPostman-Token: 91
+2ebdcc-bac5-4b2f-b913-b4706e509cd0\r\nHost: 192.168.1.246\r\nAccept-Encoding: gz
+ip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 123\r\n\r\n{\r\n
+ "action" : "setLedColour",\r\n    "colour" : "blue",\r\n    "text" : "this is l
+ine 1\\nthis is line 2\\nthis is line 3"\r\n}
+
+
+POST /api HTTP/1.1
+Content-Type: application/javascript
+User-Agent: PostmanRuntime/7.30.0
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: 912ebdcc-bac5-4b2f-b913-b4706e509cd0
+Host: 192.168.1.246
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 123
+
+{
+    "action" : "setLedColour",
+    "colour" : "blue",
+    "text" : "this is line 1\nthis is line 2\nthis is line 3"
+}

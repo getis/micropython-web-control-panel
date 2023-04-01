@@ -1,0 +1,40 @@
+POST /api HTTP/1.1\r\nUser-Agent: PostmanRuntime/7.30.0\r\nAccept: */*\r\nCach
+e-Control: no-cache\r\nPostman-Token: 42f8113f-acec-46db-abb1-a2840e5011d3\r\nHo
+st: 192.168.1.246\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-aliv
+e\r\nContent-Type: multipart/form-data; boundary=--------------------------83399
+4107218074559113347\r\nContent-Length: 429\r\n\r\n----------------------------83
+3994107218074559113347\r\nContent-Disposition: form-data; name="action"\r\n\r\ns
+etLedColour\r\n----------------------------833994107218074559113347\r\nContent-D
+isposition: form-data; name="colour"\r\n\r\ngreen\r\n---------------------------
+-833994107218074559113347\r\nContent-Disposition: form-data; name="text"\r\n\r\n
+this is line1\nthis is line 2\nthis is line 3\r\n----------------------------833
+994107218074559113347--\r\n
+
+
+POST /api HTTP/1.1
+User-Agent: PostmanRuntime/7.30.0
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: 42f8113f-acec-46db-abb1-a2840e5011d3
+Host: 192.168.1.246
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Type: multipart/form-data; boundary=--------------------------8339941072
+18074559113347
+Content-Length: 429
+
+----------------------------833994107218074559113347
+Content-Disposition: form-data; name="action"
+
+setLedColour
+----------------------------833994107218074559113347
+Content-Disposition: form-data; name="colour"
+
+green
+----------------------------833994107218074559113347
+Content-Disposition: form-data; name="text"
+
+this is line1
+this is line 2
+this is line 3
+----------------------------833994107218074559113347--
