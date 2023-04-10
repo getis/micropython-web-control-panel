@@ -1,4 +1,5 @@
 # full demo with web control panel
+# combines multi core and multi tasking
 
 import utime
 from RequestParser import RequestParser
@@ -27,7 +28,7 @@ async def handle_request(reader, writer):
         if request.url_match("/api"):
             action = request.get_action()
             if action == 'readData':
-                # ajax request for value of pot
+                # ajax request for data
                 pot_value = IoHandler.get_pot_reading()
                 temp_value = IoHandler.get_temp_reading()
                 cled_states = {
@@ -72,7 +73,7 @@ async def handle_request(reader, writer):
                 }
                 response_builder.set_body_from_dict(response_obj)
             elif action == 'setRgbColour':
-                # turn on requested coloured led
+                # set RGB colour of first 4 neopixels
                 # returns json object with led states
                 rgb_red = int(request.data()['red'])
                 rgb_green = int(request.data()['green'])
@@ -112,6 +113,8 @@ async def main():
     server = uasyncio.start_server(handle_request, "0.0.0.0", 80)
     uasyncio.create_task(server)
 
+    # main async loop on first core
+    # just pulse the red led
     counter = 0
     while True:
         if counter % 500 == 0:
@@ -119,7 +122,7 @@ async def main():
         counter += 1
         await uasyncio.sleep(0)
 
-
+# run the top 4 neopixel scrolling loop
 def neopixels():
     while True:
         new_colour = (random.randint(0, 1) * 128, random.randint(0, 1) * 128, random.randint(0, 1) * 128)
@@ -130,10 +133,11 @@ def neopixels():
         utime.sleep(1)
 
 
-# web server on second processor
+# start neopixel scrolling loop on second processor
 second_thread = _thread.start_new_thread(neopixels, ())
 
 try:
+    # start asyncio tasks on first core
     uasyncio.run(main())
 finally:
     uasyncio.new_event_loop()
