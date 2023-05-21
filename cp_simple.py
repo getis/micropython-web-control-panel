@@ -1,4 +1,4 @@
-# full demo with web control panel
+# simple web control panel
 # combines multi core and multi tasking
 
 import utime
@@ -32,24 +32,7 @@ async def handle_request(reader, writer):
                 # used in simple test
                 pot_value = IoHandler.get_pot_reading()
                 # send back reading as simple text
-                response_builder.set_body(pot_value)
-            elif action == 'readData':
-                # ajax request for data
-                pot_value = IoHandler.get_pot_reading()
-                temp_value = IoHandler.get_temp_reading()
-                cled_states = {
-                    'blue': IoHandler.get_blue_led(),
-                    'yellow': IoHandler.get_yellow_led(),
-                    'green': IoHandler.get_green_led()
-                }
-                response_obj = {
-                    'status': 0,
-                    'pot_value': pot_value,
-                    'temp_value': temp_value,
-                    'cled_states': cled_states,
-                    'rgb_leds': IoHandler.rgb_led_colours
-                }
-                response_builder.set_body_from_dict(response_obj)
+                response_builder.set_body(str(pot_value))
             elif action == 'setLedColour':
                 # turn on requested coloured led
                 # returns json object with led states
@@ -78,32 +61,14 @@ async def handle_request(reader, writer):
                     'cled_states': cled_states
                 }
                 response_builder.set_body_from_dict(response_obj)
-            elif action == 'setRgbColour':
-                # set RGB colour of first 4 neopixels
-                # returns json object with led states
-                rgb_red = int(request.data()['red'])
-                rgb_green = int(request.data()['green'])
-                rgb_blue = int(request.data()['blue'])
 
-                status = 'OK'
-                rgb_colours = {
-                    'red': rgb_red,
-                    'green': rgb_green,
-                    'blue': rgb_blue
-                }
-                IoHandler.set_rgb_leds(rgb_red, rgb_green, rgb_blue)
-                response_obj = {
-                    'status': status,
-                    'rgb_colours': rgb_colours
-                }
-                response_builder.set_body_from_dict(response_obj)
             else:
                 # unknown action
                 response_builder.set_status(404)
 
         # try to serve static file
         else:
-            response_builder.serve_static_file(request.url, "/api_index.html")
+            response_builder.serve_static_file(request.url, "/cp_simple.html")
 
         response_builder.build_response()
         writer.write(response_builder.response)

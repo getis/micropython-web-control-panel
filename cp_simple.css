@@ -1,0 +1,18 @@
+.led{
+    width: 100px;
+}
+.led-off{
+    background-color: #600;
+}
+.led-on{
+    background-color: #F00;
+}
+.led-on-blue{
+    background-color: #00F;
+}
+.led-on-yellow{
+    background-color: #FF0;
+}
+.led-on-green{
+    background-color: #0F0;
+}

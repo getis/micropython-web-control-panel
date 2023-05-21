@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raspberry Pi Pico Test</title>
+    <link rel="stylesheet" href="/cp_simple.css" type="text/css">
+</head>
+<body>
+<table style="width: 100%; padding: 20px;">
+    <tr>
+        <td style="text-align: center"><h1>Raspberry Pi Pico</h1></td>
+    </tr>
+    <tr>
+        <td style="text-align: center">
+            <button id="readPot" class="" onclick="getReadingFromPico()">read pot</button>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center"><h2 id="reading">1234567</h2></td>
+    </tr>
+</table>
+<table style="width: 100%; padding: 20px; margin-top: 30px">
+    <tr style="margin-top: 50px">
+        <td style="text-align: center">
+            <button id="blue_led_button" class="led" onclick="setLedColour('blue')">blue</button>&nbsp;&nbsp;
+            <button id="yellow_led_button" class="led" onclick="setLedColour('yellow')">yellow</button>&nbsp;&nbsp;
+            <button id="green_led_button" class="led" onclick="setLedColour('green')">green</button>&nbsp;&nbsp;
+            <button id="orange_led_button" class="led" onclick="setLedColour('orange')">orange</button>&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center">
+            <button id="cled_state" class="led led-off">&nbsp;</button>
+        </td>
+    </tr>
+</table>
+
+</body>
+
+<script src="/cp_simple.js"></script>
+
+</html>
